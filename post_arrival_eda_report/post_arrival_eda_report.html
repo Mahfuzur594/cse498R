@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EDA Report – Post-Arrival Students Mental Health Survey</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #fafafa; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #2c3e50; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 40px; }
+        h3 { color: #1f618d; margin-top: 30px; }
+        table { border-collapse: collapse; width: 100%; background: white; }
+        th, td { padding: 8px; border: 1px solid #ccc; }
+        th { background-color: #f2f2f2; }
+        img { margin-bottom: 30px; border: 1px solid #ccc; padding: 5px; background: white; }
+        hr { border: none; height: 1px; background: #ccc; }
+        p { font-size: 15px; }
+    </style>
+</head>
+
+<body>
+
+<h1>Exploratory Data Analysis (EDA) Report</h1>
+<p><b>Survey Type:</b> Post-Arrival Student Mental Health Survey</p>
+
+<h2>1. Dataset Overview</h2>
+<p>
+<b>Rows:</b> 175 <br>
+<b>Columns:</b> 31
+</p>
+
+<h2>2. Summary Statistics</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Timestamp</th>
+      <th>1. Age Group</th>
+      <th>2. Gender</th>
+      <th>3.Academic Level</th>
+      <th>4. Country you are currently studying in.</th>
+      <th>5. How often do you feel overwhelmed by your responsibilities abroad?</th>
+      <th>6.How often do you feel nervous or on edge since arriving abroad?</th>
+      <th>7.  How difficult is it for you to relax after your daily activities while living abroad?</th>
+      <th>8. How often do you feel low energy or lack motivation due to stress?</th>
+      <th>9. How often do you struggle with concentration because of mental pressure?</th>
+      <th>10. How confident are you in handling emotional ups and downs abroad?</th>
+      <th>11. How difficult was cultural adjustment after arriving?</th>
+      <th>12. How often do you feel socially isolated or lonely abroad?</th>
+      <th>13. How confident are you in communicating with people in your new country?</th>
+      <th>14. Do you feel accepted by classmates, peers, or community members?</th>
+      <th>15. How concerned are you about finding and maintaining friendships abroad?</th>
+      <th>16. How stressful is the academic workload in your institution?</th>
+      <th>17. Do you feel pressure to achieve high academic results?</th>
+      <th>18. How challenging is it to balance academics with part-time work (if applicable)?</th>
+      <th>19. How often do you feel stressed before exams or deadlines?</th>
+      <th>20. How confident are you in adapting to academic standards abroad?</th>
+      <th>21. How stressed are you about managing living expenses abroad?</th>
+      <th>22. Do financial difficulties affect your emotional well-being?</th>
+      <th>23. How anxious are you about long-term visa or immigration matters?</th>
+      <th>24. How confident are you in finding stable work or financial support abroad?</th>
+      <th>25. Do you feel emotionally supported by your family while living abroad?</th>
+      <th>26. How often do you feel homesick?</th>
+      <th>27. How comfortable are you sharing emotional struggles with family or friends?</th>
+      <th>28. Do you get sufficient sleep (7–8 hours)?</th>
+      <th>29. How often do you engage in physical activity or exercise?</th>
+      <th>30. Do you practice relaxation activities (prayer, meditation, breathing exercises)?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>158</td>
+      <td>158</td>
+      <td>163</td>
+      <td>161</td>
+      <td>158</td>
+      <td>155.000000</td>
+      <td>166.000000</td>
+      <td>163</td>
+      <td>166.000000</td>
+      <td>161.000000</td>
+      <td>160.000000</td>
+      <td>161.000000</td>
+      <td>165.000000</td>
+      <td>166.000000</td>
+      <td>160</td>
+      <td>158.000000</td>
+      <td>160.000000</td>
+      <td>163</td>
+      <td>157.000000</td>
+      <td>164</td>
+      <td>159.000000</td>
+      <td>160.000000</td>
+      <td>156</td>
+      <td>162.000000</td>
+      <td>160.00000</td>
+      <td>161</td>
+      <td>161.000000</td>
+      <td>159.0</td>
+      <td>166</td>
+      <td>166.000000</td>
+      <td>157</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>5</td>
+      <td>3</td>
+      <td>2</td>
+      <td>14</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>2025/12/15 10:01:13 PM GMT+6</td>
+      <td>18-22</td>
+      <td>Male</td>
+      <td>UK</td>
+      <td>Australia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Always</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>37</td>
+      <td>64</td>
+      <td>94</td>
+      <td>18</td>
+      <td>70</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>96</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>93</td>
+      <td>NaN</td>
+      <td>61</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>156</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>125</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>142</td>
+      <td>NaN</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.658065</td>
+      <td>3.240964</td>
+      <td>NaN</td>
+      <td>2.771084</td>
+      <td>3.515528</td>
+      <td>4.187500</td>
+      <td>2.881988</td>
+      <td>2.690909</td>
+      <td>3.650602</td>
+      <td>NaN</td>
+      <td>4.050633</td>
+      <td>2.981250</td>
+      <td>NaN</td>
+      <td>3.171975</td>
+      <td>NaN</td>
+      <td>3.893082</td>
+      <td>3.618750</td>
+      <td>NaN</td>
+      <td>3.635802</td>
+      <td>2.98750</td>
+      <td>NaN</td>
+      <td>3.453416</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>3.421687</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.245453</td>
+      <td>0.973471</td>
+      <td>NaN</td>
+      <td>1.214312</td>
+      <td>0.859546</td>
+      <td>0.794537</td>
+      <td>1.715295</td>
+      <td>1.467610</td>
+      <td>1.055246</td>
+      <td>NaN</td>
+      <td>1.110445</td>
+      <td>1.661521</td>
+      <td>NaN</td>
+      <td>1.498625</td>
+      <td>NaN</td>
+      <td>0.971696</td>
+      <td>0.487219</td>
+      <td>NaN</td>
+      <td>1.032131</td>
+      <td>0.89011</td>
+      <td>NaN</td>
+      <td>0.798047</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.187005</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>2.00000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>2.00000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>3.00000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.00000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>4.00000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>3. Missing Values</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Column</th>
+      <th>Missing Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Timestamp</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>1. Age Group</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>2. Gender</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>3.Academic Level</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>4. Country you are currently studying in.</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>5. How often do you feel overwhelmed by your responsibilities abroad?</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>6.How often do you feel nervous or on edge since arriving abroad?</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>7.  How difficult is it for you to relax after your daily activities while living abroad?</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>8. How often do you feel low energy or lack motivation due to stress?</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>9. How often do you struggle with concentration because of mental pressure?</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>10. How confident are you in handling emotional ups and downs abroad?</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>11. How difficult was cultural adjustment after arriving?</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>12. How often do you feel socially isolated or lonely abroad?</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>13. How confident are you in communicating with people in your new country?</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>14. Do you feel accepted by classmates, peers, or community members?</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>15. How concerned are you about finding and maintaining friendships abroad?</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>16. How stressful is the academic workload in your institution?</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>17. Do you feel pressure to achieve high academic results?</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>18. How challenging is it to balance academics with part-time work (if applicable)?</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>19. How often do you feel stressed before exams or deadlines?</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>20. How confident are you in adapting to academic standards abroad?</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>21. How stressed are you about managing living expenses abroad?</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>22. Do financial difficulties affect your emotional well-being?</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>23. How anxious are you about long-term visa or immigration matters?</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>24. How confident are you in finding stable work or financial support abroad?</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>25. Do you feel emotionally supported by your family while living abroad?</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>26. How often do you feel homesick?</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>27. How comfortable are you sharing emotional struggles with family or friends?</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>28. Do you get sufficient sleep (7–8 hours)?</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>29. How often do you engage in physical activity or exercise?</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>30. Do you practice relaxation activities (prayer, meditation, breathing exercises)?</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>4. Numeric Feature Distributions</h2>
+
+    <h3>  5. How often do you feel overwhelmed by your responsibilities abroad?  </h3>
+    <img src="images/__5__How_often_do_you_feel_overwhelmed_by_your_responsibilities_abroad___.png" width="500">
+    <hr>
+    
+    <h3>6.How often do you feel nervous or on edge since arriving abroad?  </h3>
+    <img src="images/6_How_often_do_you_feel_nervous_or_on_edge_since_arriving_abroad___.png" width="500">
+    <hr>
+    
+    <h3>  8. How often do you feel low energy or lack motivation due to stress?   </h3>
+    <img src="images/__8__How_often_do_you_feel_low_energy_or_lack_motivation_due_to_stress____.png" width="500">
+    <hr>
+    
+    <h3> 9. How often do you struggle with concentration because of mental pressure?  </h3>
+    <img src="images/_9__How_often_do_you_struggle_with_concentration_because_of_mental_pressure___.png" width="500">
+    <hr>
+    
+    <h3>10. How confident are you in handling emotional ups and downs abroad?  </h3>
+    <img src="images/10__How_confident_are_you_in_handling_emotional_ups_and_downs_abroad___.png" width="500">
+    <hr>
+    
+    <h3> 11. How difficult was cultural adjustment after arriving?  </h3>
+    <img src="images/_11__How_difficult_was_cultural_adjustment_after_arriving___.png" width="500">
+    <hr>
+    
+    <h3> 12. How often do you feel socially isolated or lonely abroad?  </h3>
+    <img src="images/_12__How_often_do_you_feel_socially_isolated_or_lonely_abroad___.png" width="500">
+    <hr>
+    
+    <h3>  13. How confident are you in communicating with people in your new country?  </h3>
+    <img src="images/__13__How_confident_are_you_in_communicating_with_people_in_your_new_country___.png" width="500">
+    <hr>
+    
+    <h3> 15. How concerned are you about finding and maintaining friendships abroad?  </h3>
+    <img src="images/_15__How_concerned_are_you_about_finding_and_maintaining_friendships_abroad___.png" width="500">
+    <hr>
+    
+    <h3>16. How stressful is the academic workload in your institution?  </h3>
+    <img src="images/16__How_stressful_is_the_academic_workload_in_your_institution___.png" width="500">
+    <hr>
+    
+    <h3> 18. How challenging is it to balance academics with part-time work (if applicable)?   </h3>
+    <img src="images/_18__How_challenging_is_it_to_balance_academics_with_part_time_work__if_applicable_____.png" width="500">
+    <hr>
+    
+    <h3>  20. How confident are you in adapting to academic standards abroad?  </h3>
+    <img src="images/__20__How_confident_are_you_in_adapting_to_academic_standards_abroad___.png" width="500">
+    <hr>
+    
+    <h3>  21. How stressed are you about managing living expenses abroad?  </h3>
+    <img src="images/__21__How_stressed_are_you_about_managing_living_expenses_abroad___.png" width="500">
+    <hr>
+    
+    <h3>  23. How anxious are you about long-term visa or immigration matters?  </h3>
+    <img src="images/__23__How_anxious_are_you_about_long_term_visa_or_immigration_matters___.png" width="500">
+    <hr>
+    
+    <h3>24. How confident are you in finding stable work or financial support abroad?  </h3>
+    <img src="images/24__How_confident_are_you_in_finding_stable_work_or_financial_support_abroad___.png" width="500">
+    <hr>
+    
+    <h3>  26. How often do you feel homesick?   </h3>
+    <img src="images/__26__How_often_do_you_feel_homesick____.png" width="500">
+    <hr>
+    
+    <h3>  27. How comfortable are you sharing emotional struggles with family or friends?  </h3>
+    <img src="images/__27__How_comfortable_are_you_sharing_emotional_struggles_with_family_or_friends___.png" width="500">
+    <hr>
+    
+    <h3>  29. How often do you engage in physical activity or exercise?  </h3>
+    <img src="images/__29__How_often_do_you_engage_in_physical_activity_or_exercise___.png" width="500">
+    <hr>
+    
+
+<h2>5. Conclusion</h2>
+<p>
+This post-arrival EDA highlights students’ mental health patterns after settling abroad.
+Key stressors include academic workload, financial management, cultural adjustment,
+and emotional well-being. The analysis provides insight for targeted support
+interventions for international students.
+</p>
+
+</body>
+</html>

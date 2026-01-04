@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EDA Report – Pre-Departure Students Mental Health Survey</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        h1 { color: #2c3e50; }
+        h2 { color: #34495e; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        img { margin-bottom: 30px; }
+    </style>
+</head>
+
+<body>
+
+<h1>Exploratory Data Analysis (EDA) Report</h1>
+
+<h2>1. Dataset Overview</h2>
+<p><b>Rows:</b> 300 <br>
+<b>Columns:</b> 31</p>
+
+<h2>2. Summary Statistics</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Timestamp</th>
+      <th>1. Age Group</th>
+      <th>2. Gender</th>
+      <th>3. Academic Level</th>
+      <th>Destination Country</th>
+      <th>5. How often do you feel overwhelmed by your responsibilities during pre‑departure preparation?</th>
+      <th>6. How often do you feel nervous or on edge about going abroad?</th>
+      <th>7. Do you find it difficult to relax when thinking about your upcoming move?</th>
+      <th>8. How often do you worry about your ability to cope with challenges abroad?</th>
+      <th>9. How often do you feel low energy or lack motivation due to pre‑departure stress?</th>
+      <th>10. How confident do you feel in handling emotional ups and downs during this transition?</th>
+      <th>11. How anxious are you about visa delays or possible rejection?</th>
+      <th>12. How often do you overthink potential problems that might happen abroad?</th>
+      <th>13. How confident are you in your English/language communication skills?</th>
+      <th>14. How stressed do you feel about adapting to a new cultural and academic environment?</th>
+      <th>15. How satisfied are you with your current academic performance?</th>
+      <th>16. Do you feel pressure to perform well academically abroad?</th>
+      <th>17. How stressed are you about managing finances abroad (tuition, rent, cost of living)?</th>
+      <th>18. How confident are you in finding part‑time work or financial support abroad?</th>
+      <th>19. Do you feel emotionally supported by your family during the pre‑departure phase?</th>
+      <th>20. How often do you feel pressured by your family’s expectations?</th>
+      <th>21. How comfortable are you discussing your worries with friends or family?</th>
+      <th>22. How concerned are you about becoming socially isolated abroad?</th>
+      <th>23. How confident are you about making new friends abroad?</th>
+      <th>24. Do you get sufficient sleep (7–8 hours) during the preparation period?</th>
+      <th>25. How often do you engage in physical activity or exercise?</th>
+      <th>26. Do you use relaxation techniques (prayer, meditation, deep breathing)?</th>
+      <th>27. How prepared do you feel to live independently abroad (cooking, budgeting, managing tasks)?</th>
+      <th>28. How confident are you about handling unexpected issues abroad (illness, document problems, emergencies)?</th>
+      <th>29. How strongly do you believe you can manage homesickness after moving abroad?</th>
+      <th>30. How stressed are you about leaving your family and friends?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>275</td>
+      <td>269</td>
+      <td>263</td>
+      <td>272</td>
+      <td>271</td>
+      <td>266.000000</td>
+      <td>252.000000</td>
+      <td>264</td>
+      <td>277.000000</td>
+      <td>255.000000</td>
+      <td>254.000000</td>
+      <td>260.000000</td>
+      <td>250.000000</td>
+      <td>251.00000</td>
+      <td>258.000000</td>
+      <td>247.000000</td>
+      <td>246</td>
+      <td>250.000000</td>
+      <td>236.000000</td>
+      <td>241</td>
+      <td>254.000000</td>
+      <td>247.000000</td>
+      <td>258.000000</td>
+      <td>250.000000</td>
+      <td>247</td>
+      <td>254.000000</td>
+      <td>247</td>
+      <td>249.000000</td>
+      <td>246.000000</td>
+      <td>252.000000</td>
+      <td>244.000000</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>34</td>
+      <td>3</td>
+      <td>2</td>
+      <td>15</td>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>2025/12/09 12:05:43 PM GMT+6</td>
+      <td>23–26</td>
+      <td>Male</td>
+      <td>UK</td>
+      <td>USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>16</td>
+      <td>208</td>
+      <td>187</td>
+      <td>30</td>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>193</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>186</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>126</td>
+      <td>NaN</td>
+      <td>155</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.026316</td>
+      <td>3.011905</td>
+      <td>NaN</td>
+      <td>3.036101</td>
+      <td>3.125490</td>
+      <td>3.023622</td>
+      <td>3.469231</td>
+      <td>3.336000</td>
+      <td>3.25498</td>
+      <td>3.217054</td>
+      <td>2.283401</td>
+      <td>NaN</td>
+      <td>3.812000</td>
+      <td>3.216102</td>
+      <td>NaN</td>
+      <td>2.842520</td>
+      <td>3.157895</td>
+      <td>3.193798</td>
+      <td>3.284000</td>
+      <td>NaN</td>
+      <td>3.129921</td>
+      <td>NaN</td>
+      <td>3.172691</td>
+      <td>3.004065</td>
+      <td>3.285714</td>
+      <td>3.237705</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.248117</td>
+      <td>1.295048</td>
+      <td>NaN</td>
+      <td>1.416312</td>
+      <td>1.267374</td>
+      <td>1.351121</td>
+      <td>1.510266</td>
+      <td>1.331991</td>
+      <td>1.12371</td>
+      <td>1.290258</td>
+      <td>1.154986</td>
+      <td>NaN</td>
+      <td>1.242106</td>
+      <td>1.199253</td>
+      <td>NaN</td>
+      <td>1.287982</td>
+      <td>1.304841</td>
+      <td>1.164170</td>
+      <td>1.348562</td>
+      <td>NaN</td>
+      <td>1.267896</td>
+      <td>NaN</td>
+      <td>1.387697</td>
+      <td>1.119395</td>
+      <td>1.024459</td>
+      <td>1.286545</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.00000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>3.00000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>4.00000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>4.00000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.00000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>3. Missing Values</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Column</th>
+      <th>Missing Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Timestamp</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>1. Age Group</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>2. Gender</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>3. Academic Level</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>Destination Country</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>5. How often do you feel overwhelmed by your responsibilities during pre‑departure preparation?</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <td>6. How often do you feel nervous or on edge about going abroad?</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>7. Do you find it difficult to relax when thinking about your upcoming move?</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>8. How often do you worry about your ability to cope with challenges abroad?</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>9. How often do you feel low energy or lack motivation due to pre‑departure stress?</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>10. How confident do you feel in handling emotional ups and downs during this transition?</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>11. How anxious are you about visa delays or possible rejection?</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>12. How often do you overthink potential problems that might happen abroad?</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>13. How confident are you in your English/language communication skills?</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>14. How stressed do you feel about adapting to a new cultural and academic environment?</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>15. How satisfied are you with your current academic performance?</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>16. Do you feel pressure to perform well academically abroad?</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>17. How stressed are you about managing finances abroad (tuition, rent, cost of living)?</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>18. How confident are you in finding part‑time work or financial support abroad?</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>19. Do you feel emotionally supported by your family during the pre‑departure phase?</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>20. How often do you feel pressured by your family’s expectations?</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>21. How comfortable are you discussing your worries with friends or family?</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>22. How concerned are you about becoming socially isolated abroad?</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>23. How confident are you about making new friends abroad?</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>24. Do you get sufficient sleep (7–8 hours) during the preparation period?</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>25. How often do you engage in physical activity or exercise?</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>26. Do you use relaxation techniques (prayer, meditation, deep breathing)?</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>27. How prepared do you feel to live independently abroad (cooking, budgeting, managing tasks)?</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>28. How confident are you about handling unexpected issues abroad (illness, document problems, emergencies)?</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>29. How strongly do you believe you can manage homesickness after moving abroad?</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>30. How stressed are you about leaving your family and friends?</td>
+      <td>56</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>4. Numeric Feature Distributions</h2>
+
+    <h3>5. How often do you feel overwhelmed by your responsibilities during pre‑departure preparation?</h3>
+    <img src="images/5__How_often_do_you_feel_overwhelmed_by_your_responsibilities_during_pre_departure_preparation_.png" width="500">
+    <hr>
+    
+    <h3>6. How often do you feel nervous or on edge about going abroad?</h3>
+    <img src="images/6__How_often_do_you_feel_nervous_or_on_edge_about_going_abroad_.png" width="500">
+    <hr>
+    
+    <h3>8. How often do you worry about your ability to cope with challenges abroad?</h3>
+    <img src="images/8__How_often_do_you_worry_about_your_ability_to_cope_with_challenges_abroad_.png" width="500">
+    <hr>
+    
+    <h3>9. How often do you feel low energy or lack motivation due to pre‑departure stress?</h3>
+    <img src="images/9__How_often_do_you_feel_low_energy_or_lack_motivation_due_to_pre_departure_stress_.png" width="500">
+    <hr>
+    
+    <h3>10. How confident do you feel in handling emotional ups and downs during this transition?</h3>
+    <img src="images/10__How_confident_do_you_feel_in_handling_emotional_ups_and_downs_during_this_transition_.png" width="500">
+    <hr>
+    
+    <h3>11. How anxious are you about visa delays or possible rejection?</h3>
+    <img src="images/11__How_anxious_are_you_about_visa_delays_or_possible_rejection_.png" width="500">
+    <hr>
+    
+    <h3>12. How often do you overthink potential problems that might happen abroad?</h3>
+    <img src="images/12__How_often_do_you_overthink_potential_problems_that_might_happen_abroad_.png" width="500">
+    <hr>
+    
+    <h3>13. How confident are you in your English/language communication skills?</h3>
+    <img src="images/13__How_confident_are_you_in_your_English_language_communication_skills_.png" width="500">
+    <hr>
+    
+    <h3>14. How stressed do you feel about adapting to a new cultural and academic environment?</h3>
+    <img src="images/14__How_stressed_do_you_feel_about_adapting_to_a_new_cultural_and_academic_environment_.png" width="500">
+    <hr>
+    
+    <h3>15. How satisfied are you with your current academic performance?</h3>
+    <img src="images/15__How_satisfied_are_you_with_your_current_academic_performance_.png" width="500">
+    <hr>
+    
+    <h3>17. How stressed are you about managing finances abroad (tuition, rent, cost of living)?</h3>
+    <img src="images/17__How_stressed_are_you_about_managing_finances_abroad__tuition__rent__cost_of_living__.png" width="500">
+    <hr>
+    
+    <h3>18. How confident are you in finding part‑time work or financial support abroad?</h3>
+    <img src="images/18__How_confident_are_you_in_finding_part_time_work_or_financial_support_abroad_.png" width="500">
+    <hr>
+    
+    <h3>20. How often do you feel pressured by your family’s expectations?</h3>
+    <img src="images/20__How_often_do_you_feel_pressured_by_your_family_s_expectations_.png" width="500">
+    <hr>
+    
+    <h3>21. How comfortable are you discussing your worries with friends or family?</h3>
+    <img src="images/21__How_comfortable_are_you_discussing_your_worries_with_friends_or_family_.png" width="500">
+    <hr>
+    
+    <h3>22. How concerned are you about becoming socially isolated abroad?</h3>
+    <img src="images/22__How_concerned_are_you_about_becoming_socially_isolated_abroad_.png" width="500">
+    <hr>
+    
+    <h3>23. How confident are you about making new friends abroad?</h3>
+    <img src="images/23__How_confident_are_you_about_making_new_friends_abroad_.png" width="500">
+    <hr>
+    
+    <h3>25. How often do you engage in physical activity or exercise?</h3>
+    <img src="images/25__How_often_do_you_engage_in_physical_activity_or_exercise_.png" width="500">
+    <hr>
+    
+    <h3>27. How prepared do you feel to live independently abroad (cooking, budgeting, managing tasks)?</h3>
+    <img src="images/27__How_prepared_do_you_feel_to_live_independently_abroad__cooking__budgeting__managing_tasks__.png" width="500">
+    <hr>
+    
+    <h3>28. How confident are you about handling unexpected issues abroad (illness, document problems, emergencies)?</h3>
+    <img src="images/28__How_confident_are_you_about_handling_unexpected_issues_abroad__illness__document_problems__emergencies__.png" width="500">
+    <hr>
+    
+    <h3>29. How strongly do you believe you can manage homesickness after moving abroad? </h3>
+    <img src="images/29__How_strongly_do_you_believe_you_can_manage_homesickness_after_moving_abroad__.png" width="500">
+    <hr>
+    
+    <h3>30. How stressed are you about leaving your family and friends?</h3>
+    <img src="images/30__How_stressed_are_you_about_leaving_your_family_and_friends_.png" width="500">
+    <hr>
+    
+
+</body>
+</html>

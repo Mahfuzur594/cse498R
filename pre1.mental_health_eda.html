@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EDA Report – Student Mental Health Survey</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #1e3c72;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+section {
+    background: white;
+    margin: 25px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    border-bottom: 2px solid #1e3c72;
+    padding-bottom: 5px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table th, .table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background: #1e3c72;
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+footer {
+    background: #ddd;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #1e3c72;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Exploratory Data Analysis (EDA)</h1>
+    <p>Pre-Departure Students Mental Health Survey</p>
+</header>
+
+<section>
+    <h2>1. Dataset Overview</h2>
+    <p>
+        <span class="highlight">Total Rows:</span> 300<br>
+        <span class="highlight">Total Columns:</span> 31
+    </p>
+    <p>
+        This dataset contains survey responses related to students' mental health
+        before departure. The purpose of this EDA is to understand the structure,
+        quality, and distribution of the data.
+    </p>
+</section>
+
+<section>
+    <h2>2. Missing Values Analysis</h2>
+    <p>
+        This table shows the number and percentage of missing values in each column.
+        Columns with high missing percentages may require imputation or removal.
+    </p>
+    <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Missing Count</th>
+      <th>Missing %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Timestamp</th>
+      <td>25</td>
+      <td>8.33</td>
+    </tr>
+    <tr>
+      <th>1. Age Group</th>
+      <td>31</td>
+      <td>10.33</td>
+    </tr>
+    <tr>
+      <th>2. Gender</th>
+      <td>37</td>
+      <td>12.33</td>
+    </tr>
+    <tr>
+      <th>3. Academic Level</th>
+      <td>28</td>
+      <td>9.33</td>
+    </tr>
+    <tr>
+      <th>Destination Country</th>
+      <td>29</td>
+      <td>9.67</td>
+    </tr>
+    <tr>
+      <th>5. How often do you feel overwhelmed by your responsibilities during pre‑departure preparation?</th>
+      <td>34</td>
+      <td>11.33</td>
+    </tr>
+    <tr>
+      <th>6. How often do you feel nervous or on edge about going abroad?</th>
+      <td>48</td>
+      <td>16.00</td>
+    </tr>
+    <tr>
+      <th>7. Do you find it difficult to relax when thinking about your upcoming move?</th>
+      <td>36</td>
+      <td>12.00</td>
+    </tr>
+    <tr>
+      <th>8. How often do you worry about your ability to cope with challenges abroad?</th>
+      <td>23</td>
+      <td>7.67</td>
+    </tr>
+    <tr>
+      <th>9. How often do you feel low energy or lack motivation due to pre‑departure stress?</th>
+      <td>45</td>
+      <td>15.00</td>
+    </tr>
+    <tr>
+      <th>10. How confident do you feel in handling emotional ups and downs during this transition?</th>
+      <td>46</td>
+      <td>15.33</td>
+    </tr>
+    <tr>
+      <th>11. How anxious are you about visa delays or possible rejection?</th>
+      <td>40</td>
+      <td>13.33</td>
+    </tr>
+    <tr>
+      <th>12. How often do you overthink potential problems that might happen abroad?</th>
+      <td>50</td>
+      <td>16.67</td>
+    </tr>
+    <tr>
+      <th>13. How confident are you in your English/language communication skills?</th>
+      <td>49</td>
+      <td>16.33</td>
+    </tr>
+    <tr>
+      <th>14. How stressed do you feel about adapting to a new cultural and academic environment?</th>
+      <td>42</td>
+      <td>14.00</td>
+    </tr>
+    <tr>
+      <th>15. How satisfied are you with your current academic performance?</th>
+      <td>53</td>
+      <td>17.67</td>
+    </tr>
+    <tr>
+      <th>16. Do you feel pressure to perform well academically abroad?</th>
+      <td>54</td>
+      <td>18.00</td>
+    </tr>
+    <tr>
+      <th>17. How stressed are you about managing finances abroad (tuition, rent, cost of living)?</th>
+      <td>50</td>
+      <td>16.67</td>
+    </tr>
+    <tr>
+      <th>18. How confident are you in finding part‑time work or financial support abroad?</th>
+      <td>64</td>
+      <td>21.33</td>
+    </tr>
+    <tr>
+      <th>19. Do you feel emotionally supported by your family during the pre‑departure phase?</th>
+      <td>59</td>
+      <td>19.67</td>
+    </tr>
+    <tr>
+      <th>20. How often do you feel pressured by your family’s expectations?</th>
+      <td>46</td>
+      <td>15.33</td>
+    </tr>
+    <tr>
+      <th>21. How comfortable are you discussing your worries with friends or family?</th>
+      <td>53</td>
+      <td>17.67</td>
+    </tr>
+    <tr>
+      <th>22. How concerned are you about becoming socially isolated abroad?</th>
+      <td>42</td>
+      <td>14.00</td>
+    </tr>
+    <tr>
+      <th>23. How confident are you about making new friends abroad?</th>
+      <td>50</td>
+      <td>16.67</td>
+    </tr>
+    <tr>
+      <th>24. Do you get sufficient sleep (7–8 hours) during the preparation period?</th>
+      <td>53</td>
+      <td>17.67</td>
+    </tr>
+    <tr>
+      <th>25. How often do you engage in physical activity or exercise?</th>
+      <td>46</td>
+      <td>15.33</td>
+    </tr>
+    <tr>
+      <th>26. Do you use relaxation techniques (prayer, meditation, deep breathing)?</th>
+      <td>53</td>
+      <td>17.67</td>
+    </tr>
+    <tr>
+      <th>27. How prepared do you feel to live independently abroad (cooking, budgeting, managing tasks)?</th>
+      <td>51</td>
+      <td>17.00</td>
+    </tr>
+    <tr>
+      <th>28. How confident are you about handling unexpected issues abroad (illness, document problems, emergencies)?</th>
+      <td>54</td>
+      <td>18.00</td>
+    </tr>
+    <tr>
+      <th>29. How strongly do you believe you can manage homesickness after moving abroad?</th>
+      <td>48</td>
+      <td>16.00</td>
+    </tr>
+    <tr>
+      <th>30. How stressed are you about leaving your family and friends?</th>
+      <td>56</td>
+      <td>18.67</td>
+    </tr>
+  </tbody>
+</table>
+</section>
+
+<section>
+    <h2>3. Statistical Summary</h2>
+    <p>
+        The statistical summary provides information such as count, mean, standard
+        deviation, minimum, and maximum values for numerical features, and frequency
+        details for categorical features.
+    </p>
+    <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Timestamp</th>
+      <td>275</td>
+      <td>34</td>
+      <td>2025/12/09 12:05:43 PM GMT+6</td>
+      <td>16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1. Age Group</th>
+      <td>269</td>
+      <td>3</td>
+      <td>23–26</td>
+      <td>208</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2. Gender</th>
+      <td>263</td>
+      <td>2</td>
+      <td>Male</td>
+      <td>187</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3. Academic Level</th>
+      <td>272</td>
+      <td>15</td>
+      <td>UK</td>
+      <td>30</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Destination Country</th>
+      <td>271</td>
+      <td>28</td>
+      <td>USA</td>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5. How often do you feel overwhelmed by your responsibilities during pre‑departure preparation?</th>
+      <td>266.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.026316</td>
+      <td>1.248117</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>6. How often do you feel nervous or on edge about going abroad?</th>
+      <td>252.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.011905</td>
+      <td>1.295048</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>7. Do you find it difficult to relax when thinking about your upcoming move?</th>
+      <td>264</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>193</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8. How often do you worry about your ability to cope with challenges abroad?</th>
+      <td>277.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.036101</td>
+      <td>1.416312</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>9. How often do you feel low energy or lack motivation due to pre‑departure stress?</th>
+      <td>255.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.12549</td>
+      <td>1.267374</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>10. How confident do you feel in handling emotional ups and downs during this transition?</th>
+      <td>254.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.023622</td>
+      <td>1.351121</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>11. How anxious are you about visa delays or possible rejection?</th>
+      <td>260.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.469231</td>
+      <td>1.510266</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>12. How often do you overthink potential problems that might happen abroad?</th>
+      <td>250.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.336</td>
+      <td>1.331991</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>13. How confident are you in your English/language communication skills?</th>
+      <td>251.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.25498</td>
+      <td>1.12371</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>14. How stressed do you feel about adapting to a new cultural and academic environment?</th>
+      <td>258.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.217054</td>
+      <td>1.290258</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>15. How satisfied are you with your current academic performance?</th>
+      <td>247.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.283401</td>
+      <td>1.154986</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>16. Do you feel pressure to perform well academically abroad?</th>
+      <td>246</td>
+      <td>2</td>
+      <td>yes</td>
+      <td>188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>17. How stressed are you about managing finances abroad (tuition, rent, cost of living)?</th>
+      <td>250.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.812</td>
+      <td>1.242106</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>18. How confident are you in finding part‑time work or financial support abroad?</th>
+      <td>236.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.216102</td>
+      <td>1.199253</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>19. Do you feel emotionally supported by your family during the pre‑departure phase?</th>
+      <td>241</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>186</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20. How often do you feel pressured by your family’s expectations?</th>
+      <td>254.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.84252</td>
+      <td>1.287982</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>21. How comfortable are you discussing your worries with friends or family?</th>
+      <td>247.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.157895</td>
+      <td>1.304841</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>22. How concerned are you about becoming socially isolated abroad?</th>
+      <td>258.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.193798</td>
+      <td>1.16417</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>23. How confident are you about making new friends abroad?</th>
+      <td>250.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.284</td>
+      <td>1.348562</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>24. Do you get sufficient sleep (7–8 hours) during the preparation period?</th>
+      <td>247</td>
+      <td>2</td>
+      <td>yes</td>
+      <td>126</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25. How often do you engage in physical activity or exercise?</th>
+      <td>254.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.129921</td>
+      <td>1.267896</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>26. Do you use relaxation techniques (prayer, meditation, deep breathing)?</th>
+      <td>247</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>155</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>27. How prepared do you feel to live independently abroad (cooking, budgeting, managing tasks)?</th>
+      <td>249.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.172691</td>
+      <td>1.387697</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>28. How confident are you about handling unexpected issues abroad (illness, document problems, emergencies)?</th>
+      <td>246.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.004065</td>
+      <td>1.119395</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>29. How strongly do you believe you can manage homesickness after moving abroad?</th>
+      <td>252.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.285714</td>
+      <td>1.024459</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>30. How stressed are you about leaving your family and friends?</th>
+      <td>244.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.237705</td>
+      <td>1.286545</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</section>
+
+<section>
+    <h2>4. Key Observations</h2>
+    <ul>
+        <li>Presence of missing values indicates the need for data cleaning.</li>
+        <li>Some features may have limited variance or repeated values.</li>
+        <li>Numerical features show varying distributions which may require normalization.</li>
+        <li>Categorical features dominate the dataset, reflecting survey-based data.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>5. Conclusion</h2>
+    <p>
+        This Exploratory Data Analysis helps in understanding the overall quality and
+        characteristics of the mental health survey dataset. The insights gained from
+        this analysis will guide preprocessing, feature selection, and model building
+        in further stages.
+    </p>
+</section>
+
+<footer>
+    <p>EDA Report generated using Python, HTML & CSS</p>
+</footer>
+
+</body>
+</html>
